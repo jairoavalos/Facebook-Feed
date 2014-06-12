@@ -19,6 +19,8 @@
 		86D6567219494556005F5AA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D6565A19494556005F5AA7 /* UIKit.framework */; };
 		86D6567A19494556005F5AA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86D6567819494556005F5AA7 /* InfoPlist.strings */; };
 		86D6567C19494556005F5AA7 /* Facebook_FeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D6567B19494556005F5AA7 /* Facebook_FeedTests.m */; };
+		86D6568819494622005F5AA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D6568619494622005F5AA7 /* LoginViewController.m */; };
+		86D6568919494622005F5AA7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D6568719494622005F5AA7 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		86D6567719494556005F5AA7 /* Facebook-FeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Facebook-FeedTests-Info.plist"; sourceTree = "<group>"; };
 		86D6567919494556005F5AA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		86D6567B19494556005F5AA7 /* Facebook_FeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Facebook_FeedTests.m; sourceTree = "<group>"; };
+		86D6568519494622005F5AA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		86D6568619494622005F5AA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		86D6568719494622005F5AA7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +115,9 @@
 				86D6566519494556005F5AA7 /* AppDelegate.h */,
 				86D6566619494556005F5AA7 /* AppDelegate.m */,
 				86D6566819494556005F5AA7 /* Images.xcassets */,
+				86D6568519494622005F5AA7 /* LoginViewController.h */,
+				86D6568619494622005F5AA7 /* LoginViewController.m */,
+				86D6568719494622005F5AA7 /* LoginViewController.xib */,
 				86D6565D19494556005F5AA7 /* Supporting Files */,
 			);
 			path = "Facebook-Feed";
@@ -221,6 +229,7 @@
 			files = (
 				86D6566119494556005F5AA7 /* InfoPlist.strings in Resources */,
 				86D6566919494556005F5AA7 /* Images.xcassets in Resources */,
+				86D6568919494622005F5AA7 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +250,7 @@
 			files = (
 				86D6566719494556005F5AA7 /* AppDelegate.m in Sources */,
 				86D6566319494556005F5AA7 /* main.m in Sources */,
+				86D6568819494622005F5AA7 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
