@@ -145,6 +145,7 @@
     }
   
     // Stop loading
+  [self.loginButton setSelected:NO];
     [self.indicatorView stopAnimating];
 
 }
@@ -166,7 +167,7 @@
 
 - (IBAction)onAttemptLogin:(id)sender {
     // Show loading state. Change button bg and start indicatorview
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateNormal];
+    [self.loginButton setSelected:YES];
     [self.indicatorView startAnimating];
   
     // Delay checking for 2 seconds, then check password
