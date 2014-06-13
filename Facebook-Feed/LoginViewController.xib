@@ -9,7 +9,6 @@
                 <outlet property="emailnumberField" destination="XtH-Pa-K4C" id="Okf-Ks-6cb"/>
                 <outlet property="loginButton" destination="VYF-fx-8Pi" id="sVH-05-MtI"/>
                 <outlet property="loginContainer" destination="m7I-zf-z0o" id="Jpr-V6-YKj"/>
-                <outlet property="onAttemptLogin" destination="VYF-fx-8Pi" id="3Ag-Iq-uCP"/>
                 <outlet property="passwordField" destination="fZj-P4-Iu5" id="zk5-Tp-fbX"/>
                 <outlet property="signUpLabel" destination="MHA-Pg-UQu" id="gYB-lo-COa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

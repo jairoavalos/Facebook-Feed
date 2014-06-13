@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *emailnumberField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 
 
 @property int origLoginContainerY;
@@ -57,6 +58,12 @@
     
     // Set login button to disable to start
     self.loginButton.userInteractionEnabled = NO;
+  
+  // Add the indicator view to the screen
+    self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    //indicatorView.center = self.view.center;
+    self.indicatorView.frame = CGRectMake(250, 212, self.indicatorView.frame.size.width, self.indicatorView.frame.size.height);
+    [self.loginContainer addSubview:self.indicatorView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +78,7 @@
     // Get the keyboard height and width from the notification
     // Size varies depending on OS, language, orientation
     CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    NSLog(@"Height: %f Width: %f", kbSize.height, kbSize.width);
+    //NSLog(@"Height: %f Width: %f", kbSize.height, kbSize.width);
     
     // Get the animation duration and curve from the notification
     NSNumber *durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey];
@@ -128,8 +135,18 @@
 
 
 - (void)checkPassword {
-    if ([self.passwordField.text isEqual:@"password"]) NSLog(@"correct!"); // allow login
-    // THROW AN ERROR ALERT
+    // If the password is correct, allow login
+    if ([self.passwordField.text isEqual:@"password"]) {
+      NSLog(@"correct!");
+    } else {
+      // Otherwise, throw up an alert
+      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Password" message:@"The password you entered is incorrect. Please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+      [alertView show];
+    }
+  
+    // Stop loading
+    [self.indicatorView stopAnimating];
+
 }
 
 - (IBAction)keyboardDismissed:(id)sender {
@@ -148,7 +165,13 @@
 }
 
 - (IBAction)onAttemptLogin:(id)sender {
-    
+    // Show loading state. Change button bg and start indicatorview
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateNormal];
+    [self.indicatorView startAnimating];
+  
+    // Delay checking for 2 seconds, then check password
+    NSTimeInterval loginDelay = 2;
+    [self performSelector:@selector(checkPassword) withObject:nil  afterDelay:loginDelay];
 }
 
 
