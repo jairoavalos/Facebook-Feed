@@ -18,7 +18,9 @@
     
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     self.window.rootViewController = loginVC;
-    
+  
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+  
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
