@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "FeedViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 // Declare some methods that will be called when the keyboard is about to be shown or hidden
@@ -138,12 +139,12 @@
 - (void)checkPassword {
     // If the password is correct, allow login
     if ([self.passwordField.text isEqual:@"password"]) {
-      NSLog(@"correct!");
+      
       // Create new feed view and go to it
-      FeedViewController *feedVC = [[FeedViewController alloc] init];
-      UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
-      navVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-      [self presentViewController:navVC animated:YES completion:nil];
+      AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+      appDelegate.tabBarController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+      [self presentViewController:appDelegate.tabBarController animated:YES completion:nil];
+      
     } else {
       // Otherwise, throw up an alert
       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Password" message:@"The password you entered is incorrect. Please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -152,7 +153,7 @@
   
     // Stop loading
   [self.loginButton setSelected:NO];
-    [self.indicatorView stopAnimating];
+  [self.indicatorView stopAnimating];
 
 }
 

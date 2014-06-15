@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController.h"
+#import "AppDelegate.h"
 
 @interface FeedViewController ()
 
@@ -21,6 +22,17 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  // Delay loading for 2 seconds, then show feed
+  NSTimeInterval loginDelay = 2;
+  [self performSelector:@selector(loadFeed) withObject:nil  afterDelay:loginDelay];
+}
+
+- (void)loadFeed {
+  
 }
 
 - (void)viewDidLoad
@@ -58,6 +70,7 @@
     feedScrollView.contentSize = feedContent.frame.size;
     [feedScrollView addSubview:feedContent];
     [self.view addSubview:feedScrollView];
+  
 }
 
 - (void)didReceiveMemoryWarning
