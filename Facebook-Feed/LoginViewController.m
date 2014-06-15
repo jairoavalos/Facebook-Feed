@@ -63,7 +63,6 @@
   
   // Add the indicator view to the screen
     self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    //indicatorView.center = self.view.center;
     self.indicatorView.frame = CGRectMake(250, 212, self.indicatorView.frame.size.width, self.indicatorView.frame.size.height);
     [self.loginContainer addSubview:self.indicatorView];
 }

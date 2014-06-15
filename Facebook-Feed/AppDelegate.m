@@ -29,40 +29,33 @@
     // Create the view controllers, each within a navigation controller
     FeedViewController *feedVC = [[FeedViewController alloc] init];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
-    navVC.tabBarItem.title = @"News Feed";
-    navVC.tabBarItem.image = [UIImage imageNamed:@"news-feed"];
+    [navVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"News Feed" image:[[UIImage imageNamed:@"news-feed-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"news-feed-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
   
     RequestsViewController *requestsVC = [[RequestsViewController alloc] init];
     UINavigationController *requestNavVC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
-  UITabBarItem *requestTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Requests" image:[UIImage imageNamed:@"requests"] selectedImage:[UIImage imageNamed:@"requests"]];
-  requestsVC.tabBarItem = requestTabBarItem;
-    //requestNavVC.tabBarItem.title = @"Requests";
-    //requestNavVC.tabBarItem.image = [UIImage imageNamed:@"requests"];
+    requestNavVC.tabBarItem.title = @"Requests";
+    requestNavVC.tabBarItem.image = [[UIImage imageNamed:@"requests"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+  
   
     MessagesViewController *messagesVC = [[MessagesViewController alloc] init];
     UINavigationController *messagesNavVC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
     messagesNavVC.tabBarItem.title = @"Messages";
-    //messagesNavVC.tabBarItem.image = [UIImage imageNamed:@"messages"];
-  [messagesNavVC.tabBarItem setImage:[UIImage imageNamed:@"messages"]];
+    messagesNavVC.tabBarItem.image = [[UIImage imageNamed:@"messages"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
   
     NotificationsViewController *notificationsVC = [[NotificationsViewController alloc] init];
     UINavigationController *notificationsNavVC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
     notificationsNavVC.tabBarItem.title = @"Notifications";
-    notificationsNavVC.tabBarItem.image = [UIImage imageNamed:@"notifications"];
+    notificationsNavVC.tabBarItem.image = [[UIImage imageNamed:@"notifications"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
   
     MoreViewController *moreVC = [[MoreViewController alloc] init];
     UINavigationController *moreNavVC = [[UINavigationController alloc] initWithRootViewController:moreVC];
     moreNavVC.tabBarItem.title = @"More";
-    moreNavVC.tabBarItem.image = [UIImage imageNamed:@"more"];
+    moreNavVC.tabBarItem.image = [[UIImage imageNamed:@"more"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
   
     self.tabBarController = [[UITabBarController alloc]init];
     self.tabBarController.viewControllers = @[navVC, requestNavVC, messagesNavVC, notificationsNavVC, moreNavVC];
-  self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
-  self.tabBarController.tabBar.translucent = NO;
-  
-    //[[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
-    //[[UITabBar appearance] setTranslucent:NO];
-
+    self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.translucent = NO;
   
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 
 @interface FeedViewController ()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *feedIndicatorView;
+
+//@property (nonatomic, strong) UIActivityIndicatorView *feedIndicatorView;
 
 @end
 
@@ -24,15 +27,20 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-  // Delay loading for 2 seconds, then show feed
-  NSTimeInterval loginDelay = 2;
-  [self performSelector:@selector(loadFeed) withObject:nil  afterDelay:loginDelay];
-}
 
-- (void)loadFeed {
+- (void)loadFeed:(UIImageView*)fbookPostBar {
+  // Create feed content
+  UIImageView *feedContent = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"feed"]];
+  feedContent.frame = CGRectMake(0, 0, feedContent.frame.size.width, feedContent.frame.size.height);
   
+  // Create scrollview and add feedcontent to it
+  UIScrollView *feedScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, fbookPostBar.frame.size.height, self.view.frame.size.width, feedContent.frame.size.height - 1)];
+  feedScrollView.contentSize = feedContent.frame.size;
+  [feedScrollView addSubview:feedContent];
+  [self.view addSubview:feedScrollView];
+  
+  [self.feedIndicatorView stopAnimating];
+
 }
 
 - (void)viewDidLoad
@@ -61,15 +69,12 @@
     fbookPostBar.frame = postBarFrame;
     [self.view addSubview:fbookPostBar];
   
-    // Create feed content
-    UIImageView *feedContent = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"feed"]];
-    feedContent.frame = CGRectMake(0, 0, feedContent.frame.size.width, feedContent.frame.size.height);
   
-    // Create scrollview and add feedcontent to it
-    UIScrollView *feedScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, fbookPostBar.frame.size.height, self.view.frame.size.width, feedContent.frame.size.height - 1)];
-    feedScrollView.contentSize = feedContent.frame.size;
-    [feedScrollView addSubview:feedContent];
-    [self.view addSubview:feedScrollView];
+    [self.feedIndicatorView startAnimating];
+    // Delay loading for 2 seconds, then show feed
+    NSTimeInterval loginDelay = 2;
+    [self performSelector:@selector(loadFeed:) withObject:fbookPostBar  afterDelay:loginDelay];
+
   
 }
 
