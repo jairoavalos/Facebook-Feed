@@ -8,11 +8,13 @@
 
 #import "FeedViewController.h"
 #import "AppDelegate.h"
+#import "PostViewController.h"
 
 @interface FeedViewController ()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *feedIndicatorView;
 @property (strong, nonatomic) UIScrollView *feedScrollView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UIButton *statusButton;
 
 @property int refreshCounter;
 
@@ -68,6 +70,15 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:rightButtonImage style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.rightBarButtonItem = rightButton;
   
+  
+  
+    // Setting up the cancel button for the post view. NOT WORKING RIGHT NOW
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = cancelButton;
+  
+  
+  
+  
     // Add Facebook post bar
     UIImageView *fbookPostBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"status_bar"]];
     CGRect postBarFrame = CGRectMake(0, 0, fbookPostBar.frame.size.width, fbookPostBar.frame.size.height);
@@ -87,8 +98,20 @@
   
     // Configure Refresh Control
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+  
+    self.statusButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, fbookPostBar.frame.size.width/3, fbookPostBar.frame.size.height)];
+    [self.statusButton setImage:[UIImage imageNamed:@"highlighted"] forState:UIControlStateHighlighted];
+    [self.view addSubview:self.statusButton];
+    [self.statusButton addTarget:self action:@selector(launchPostView) forControlEvents:UIControlEventTouchUpInside];
 
   
+}
+
+- (void)launchPostView {
+    PostViewController *postVC = [[PostViewController alloc] init];
+    UINavigationController *postNavController = [[UINavigationController alloc] initWithRootViewController:postVC];
+    postNavController.modalTransitionStyle = UIModalTransitionStyleCoverVertical; // Rises from below
+    [self presentViewController:postNavController animated:YES completion:nil];
 }
 
 - (void)refresh:(id)sender

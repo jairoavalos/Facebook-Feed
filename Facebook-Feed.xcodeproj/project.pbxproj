@@ -17,6 +17,8 @@
 		86D41A3B194E259A00F24FA0 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D41A39194E259A00F24FA0 /* NotificationsViewController.xib */; };
 		86D41A3F194E25A600F24FA0 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D41A3D194E25A600F24FA0 /* MoreViewController.m */; };
 		86D41A40194E25A600F24FA0 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D41A3E194E25A600F24FA0 /* MoreViewController.xib */; };
+		86D41A44194E7A6700F24FA0 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D41A42194E7A6700F24FA0 /* PostViewController.m */; };
+		86D41A45194E7A6700F24FA0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D41A43194E7A6700F24FA0 /* PostViewController.xib */; };
 		86D6565719494556005F5AA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D6565619494556005F5AA7 /* Foundation.framework */; };
 		86D6565919494556005F5AA7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D6565819494556005F5AA7 /* CoreGraphics.framework */; };
 		86D6565B19494556005F5AA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D6565A19494556005F5AA7 /* UIKit.framework */; };
@@ -59,6 +61,9 @@
 		86D41A3C194E25A600F24FA0 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		86D41A3D194E25A600F24FA0 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		86D41A3E194E25A600F24FA0 /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
+		86D41A41194E7A6700F24FA0 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		86D41A42194E7A6700F24FA0 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		86D41A43194E7A6700F24FA0 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		86D6565319494556005F5AA7 /* Facebook-Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Facebook-Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D6565619494556005F5AA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86D6565819494556005F5AA7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +163,9 @@
 				86D41A3C194E25A600F24FA0 /* MoreViewController.h */,
 				86D41A3D194E25A600F24FA0 /* MoreViewController.m */,
 				86D41A3E194E25A600F24FA0 /* MoreViewController.xib */,
+				86D41A41194E7A6700F24FA0 /* PostViewController.h */,
+				86D41A42194E7A6700F24FA0 /* PostViewController.m */,
+				86D41A43194E7A6700F24FA0 /* PostViewController.xib */,
 				86D6565D19494556005F5AA7 /* Supporting Files */,
 			);
 			path = "Facebook-Feed";
@@ -269,6 +277,7 @@
 			files = (
 				86D41A3B194E259A00F24FA0 /* NotificationsViewController.xib in Resources */,
 				86D41A40194E25A600F24FA0 /* MoreViewController.xib in Resources */,
+				86D41A45194E7A6700F24FA0 /* PostViewController.xib in Resources */,
 				86D41A36194E258A00F24FA0 /* MessagesViewController.xib in Resources */,
 				86D6566119494556005F5AA7 /* InfoPlist.strings in Resources */,
 				86D6566919494556005F5AA7 /* Images.xcassets in Resources */,
@@ -298,6 +307,7 @@
 				86D6566719494556005F5AA7 /* AppDelegate.m in Sources */,
 				86D41A35194E258A00F24FA0 /* MessagesViewController.m in Sources */,
 				86D41A3A194E259A00F24FA0 /* NotificationsViewController.m in Sources */,
+				86D41A44194E7A6700F24FA0 /* PostViewController.m in Sources */,
 				86D6566319494556005F5AA7 /* main.m in Sources */,
 				8689227D194CD4CB0060077F /* FeedViewController.m in Sources */,
 				86D6568819494622005F5AA7 /* LoginViewController.m in Sources */,
