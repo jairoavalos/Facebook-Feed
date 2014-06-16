@@ -11,8 +11,11 @@
 
 @interface FeedViewController ()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *feedIndicatorView;
+@property (strong, nonatomic) UIScrollView *feedScrollView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
-//@property (nonatomic, strong) UIActivityIndicatorView *feedIndicatorView;
+@property int refreshCounter;
+
 
 @end
 
@@ -34,10 +37,12 @@
   feedContent.frame = CGRectMake(0, 0, feedContent.frame.size.width, feedContent.frame.size.height);
   
   // Create scrollview and add feedcontent to it
-  UIScrollView *feedScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, fbookPostBar.frame.size.height, self.view.frame.size.width, feedContent.frame.size.height - 1)];
-  feedScrollView.contentSize = feedContent.frame.size;
-  [feedScrollView addSubview:feedContent];
-  [self.view addSubview:feedScrollView];
+  self.feedScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, fbookPostBar.frame.size.height, self.view.frame.size.width, feedContent.frame.size.height - 1)];
+  self.feedScrollView.contentSize = feedContent.frame.size;
+  [self.feedScrollView addSubview:self.refreshControl];
+  [self.feedScrollView addSubview:feedContent];
+  
+  [self.view addSubview:self.feedScrollView];
   
   [self.feedIndicatorView stopAnimating];
 
@@ -76,6 +81,30 @@
     [self performSelector:@selector(loadFeed:) withObject:fbookPostBar  afterDelay:loginDelay];
 
   
+    // Initialize Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshCounter = 0;
+  
+    // Configure Refresh Control
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+
+  
+}
+
+- (void)refresh:(id)sender
+{
+  // On refresh increment counter by 1. Every other time display an error message
+  self.refreshCounter++;
+  if (self.refreshCounter % 2 == 0 && self.refreshCounter > 1) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Refresh Error" message:@"The request timed out. Sorry!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
+  }
+  
+  // Delay for 2 seconds
+  [NSThread sleepForTimeInterval:2];
+  
+  // End Refreshing
+  [(UIRefreshControl *)sender endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning

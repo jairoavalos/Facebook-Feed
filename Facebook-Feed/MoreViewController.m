@@ -42,6 +42,16 @@
   UIImage *rightButtonImage = [[UIImage imageNamed:@"people-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
   UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:rightButtonImage style:UIBarButtonItemStylePlain target:self action:nil];
   self.navigationItem.rightBarButtonItem = rightButton;
+  
+  // Create feed content
+  UIImageView *feedContent = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"more-feed"]];
+  
+  // Create scrollview and add feedcontent to it
+  UIScrollView *feedScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, feedContent.frame.size.height - 1)];
+  feedScrollView.contentSize = CGSizeMake(feedContent.frame.size.width, 2640);
+  [feedScrollView addSubview:feedContent];
+  
+  [self.view addSubview:feedScrollView];
 }
 
 - (void)didReceiveMemoryWarning

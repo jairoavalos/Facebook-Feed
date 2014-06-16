@@ -29,28 +29,27 @@
     // Create the view controllers, each within a navigation controller
     FeedViewController *feedVC = [[FeedViewController alloc] init];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
-    [navVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"News Feed" image:[[UIImage imageNamed:@"news-feed-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"news-feed-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
+    [navVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"News Feed" image:[[UIImage imageNamed:@"news-feed-unselected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"news-feed-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
   
     RequestsViewController *requestsVC = [[RequestsViewController alloc] init];
     UINavigationController *requestNavVC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
-    requestNavVC.tabBarItem.title = @"Requests";
-    requestNavVC.tabBarItem.image = [[UIImage imageNamed:@"requests"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [requestNavVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"Requests" image:[[UIImage imageNamed:@"requests"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"requests-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
   
   
     MessagesViewController *messagesVC = [[MessagesViewController alloc] init];
     UINavigationController *messagesNavVC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
-    messagesNavVC.tabBarItem.title = @"Messages";
-    messagesNavVC.tabBarItem.image = [[UIImage imageNamed:@"messages"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [messagesNavVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"Messages" image:[[UIImage imageNamed:@"messages"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"messages-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
+
   
     NotificationsViewController *notificationsVC = [[NotificationsViewController alloc] init];
     UINavigationController *notificationsNavVC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
-    notificationsNavVC.tabBarItem.title = @"Notifications";
-    notificationsNavVC.tabBarItem.image = [[UIImage imageNamed:@"notifications"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [notificationsNavVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"Notifications" image:[[UIImage imageNamed:@"notifications"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"notifications-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
+
   
     MoreViewController *moreVC = [[MoreViewController alloc] init];
     UINavigationController *moreNavVC = [[UINavigationController alloc] initWithRootViewController:moreVC];
-    moreNavVC.tabBarItem.title = @"More";
-    moreNavVC.tabBarItem.image = [[UIImage imageNamed:@"more"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [moreNavVC setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"More" image:[[UIImage imageNamed:@"more"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"more-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
+
   
     self.tabBarController = [[UITabBarController alloc]init];
     self.tabBarController.viewControllers = @[navVC, requestNavVC, messagesNavVC, notificationsNavVC, moreNavVC];
