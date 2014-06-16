@@ -10,6 +10,8 @@
 
 @interface MoreViewController ()
 
+@property (strong, nonatomic) UIButton *logoutButton;
+
 @end
 
 @implementation MoreViewController
@@ -51,7 +53,23 @@
   feedScrollView.contentSize = CGSizeMake(feedContent.frame.size.width, 2640);
   [feedScrollView addSubview:feedContent];
   
+  
+  
+  
+  // Setting up the logout button to logout of app
+  self.logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, feedScrollView.contentSize.height - 100, self.view.frame.size.width, 45)];
+  [self.logoutButton setImage:[UIImage imageNamed:@"highlighted"] forState:UIControlStateHighlighted];
+  [feedScrollView addSubview:self.logoutButton];
+  [self.logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+  
+  
+  
+  
   [self.view addSubview:feedScrollView];
+}
+
+- (void)logout {
+  NSLog(@"Logged out");
 }
 
 - (void)didReceiveMemoryWarning

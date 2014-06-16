@@ -40,6 +40,7 @@
 
     // Make keyboard active on load
     [self.postTextField becomeFirstResponder];
+  
 
 }
 

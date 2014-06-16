@@ -99,6 +99,8 @@
     // Configure Refresh Control
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
   
+  
+    // Setting up the status button for sending to post view
     self.statusButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, fbookPostBar.frame.size.width/3, fbookPostBar.frame.size.height)];
     [self.statusButton setImage:[UIImage imageNamed:@"highlighted"] forState:UIControlStateHighlighted];
     [self.view addSubview:self.statusButton];
