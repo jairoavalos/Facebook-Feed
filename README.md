@@ -35,4 +35,4 @@ Approximately 8 hours
 ###Not Completed:
 OPTIONAL: Tapping a profile picture should push a profile page
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Facebook-feed")
+![alt text](https://raw.githubusercontent.com/jairoavalos/Facebook-Feed/master/Facebook-HW2.gif "Facebook-feed")
