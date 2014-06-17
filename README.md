@@ -30,7 +30,7 @@ Approximately 8 hours
 - Upon tapping Log Out, return to the login screen. (optional)
 - Add a UIRefreshControl for a pull to refresh (optional)
 - After a pull to refresh, delay for 2 seconds before ending (optional)
-     - Every other time, display an error message (optional)
+     - Every other time, display an error message (optional). Note: The first pull on the gif wasn't pulled all the way through. This is fully functional
      
 ###Not Completed:
 OPTIONAL: Tapping a profile picture should push a profile page
