@@ -20,28 +20,44 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-      
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
-  
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
   
     self.navigationItem.title = @"Update Status";
   
 
     // Make keyboard active on load
     [self.postTextField becomeFirstResponder];
+    
+    // Setting up the cancel button for the post view. NOT WORKING RIGHT NOW
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:nil action:nil];
+    cancelButton.tintColor = [UIColor colorWithRed:93.0/255.0 green:147.0/255.0 blue:252.0/255.0 alpha:1];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    cancelButton.action = @selector(dismissPostView);
+    
+    // Setting up the post button
+    UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:nil action:nil];
+    postButton.tintColor = [UIColor lightGrayColor];
+    postButton.enabled = NO;
+    self.navigationItem.rightBarButtonItem = postButton;
   
+}
 
+- (void)dismissPostView {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

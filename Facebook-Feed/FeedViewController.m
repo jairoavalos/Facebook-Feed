@@ -32,6 +32,9 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
 
 - (void)loadFeed:(UIImageView*)fbookPostBar {
   // Create feed content
@@ -69,15 +72,6 @@
     UIImage *rightButtonImage = [[UIImage imageNamed:@"people-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:rightButtonImage style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.rightBarButtonItem = rightButton;
-  
-  
-  
-    // Setting up the cancel button for the post view. NOT WORKING RIGHT NOW
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = cancelButton;
-  
-  
-  
   
     // Add Facebook post bar
     UIImageView *fbookPostBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"status_bar"]];
