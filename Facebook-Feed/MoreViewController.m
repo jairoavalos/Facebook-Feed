@@ -8,6 +8,7 @@
 
 #import "MoreViewController.h"
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface MoreViewController ()
 
@@ -53,9 +54,7 @@
   UIScrollView *feedScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, feedContent.frame.size.height - 1)];
   feedScrollView.contentSize = CGSizeMake(feedContent.frame.size.width, 2640);
   [feedScrollView addSubview:feedContent];
-  
-  
-  
+
   
   // Setting up the logout button to logout of app
   self.logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 1500, self.view.frame.size.width, 45)];
@@ -63,20 +62,13 @@
   [feedScrollView addSubview:self.logoutButton];
   [self.logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
   
-  
-  
-  
   [self.view addSubview:feedScrollView];
 }
 
 - (void)logout {
-  NSLog(@"Logged out");
-  LoginViewController *vc = [[LoginViewController alloc] init];
-  vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve; // Rises from below
-  
-  [self presentViewController:vc animated:YES completion:nil];
-  //a[self dismissViewControllerAnimated:YES completion:nil];
 
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate showLoginPage];
 
 }
 

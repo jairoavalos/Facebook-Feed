@@ -14,15 +14,29 @@
 #import "NotificationsViewController.h"
 #import "MoreViewController.h"
 
+@interface AppDelegate()
+
+@property (nonatomic, strong) LoginViewController *loginVC;
+
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [self setupTabBarController];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (void) setupTabBarController {
   
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    self.window.rootViewController = loginVC;
+    self.loginVC = [[LoginViewController alloc] init];
+    self.window.rootViewController = self.loginVC;
   
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
   
@@ -55,10 +69,16 @@
     self.tabBarController.viewControllers = @[navVC, requestNavVC, messagesNavVC, notificationsNavVC, moreNavVC];
     self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
     self.tabBarController.tabBar.translucent = NO;
-  
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+}
+
+- (void) showLoginPage {
+    // if login page shown, reset tab bar stuff so won't store state
+    if (self.loginVC) {
+        [self.loginVC reset];
+        [self.tabBarController removeFromParentViewController];
+        self.tabBarController = nil;
+        [self setupTabBarController];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

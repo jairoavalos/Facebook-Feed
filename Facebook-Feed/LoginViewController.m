@@ -138,7 +138,8 @@
 - (void)checkPassword {
     // If the password is correct, allow login
     if ([self.passwordField.text isEqual:@"password"]) {
-      
+    
+        
       // Create new feed view and go to it
       AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
       appDelegate.tabBarController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -154,6 +155,12 @@
   [self.loginButton setSelected:NO];
   [self.indicatorView stopAnimating];
 
+}
+
+// Set text fields to empty on login reset
+- (void) reset {
+    self.emailnumberField.text = @"";
+    self.passwordField.text = @"";
 }
 
 - (IBAction)keyboardDismissed:(id)sender {
